@@ -33,6 +33,9 @@ Mirna perspektivna mreža kot ozadje strani. Odziva se na vsak zvok in video na 
 | `audio` | `audio, video` | Vir zvoka (izbirnik CSS) |
 | `fade-text` | `h1, h2, h3, p, li` | Zatemnitev za besedilom (izbirnik ali off) |
 | `max-fps` | `30` | Omejitev sličic na sekundo |
+| `start` | `idle` | Zagon: `immediate`, `idle` (po nalaganju, ko je brskalnik prost) ali `interaction` (prvi vnos) |
+| `software-fallback` | `on` | Brez GPE ali pri prepočasnem risanju: statičen prehod (`off` izklopi) |
+| `frame-guard` | `on` | Ustavi animacijo, ko sličice stalno trajajo dlje kot 8 ms (`off` izklopi) |
 
 Deluje v trenutnih brskalnikih Chrome, Edge in Firefox z WebGL. Brez WebGL dobiš miren prehod, pri zmanjšanem gibanju mirujočo sliko.
 
@@ -61,7 +64,7 @@ Pri zmanjšanem gibanju se mreža nariše kot mirujoča slika. Za naslovi in bes
 
 ## Zmogljivost
 
-Hitrost sličic je omejena (`max-fps`), risanje se ustavi v skritih zavihkih in se omeji na mobilnih napravah. Skripta ima okoli 15 KB, okoli 6 KB z gzipom, brez odvisnosti.
+Hitrost sličic je omejena (`max-fps`), risanje se ustavi v skritih zavihkih in se omeji na mobilnih napravah. Skripta ima okoli 18 KB, okoli 7 KB z gzipom, brez odvisnosti.
 
 ## Prevodi
 

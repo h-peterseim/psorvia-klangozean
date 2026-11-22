@@ -33,6 +33,9 @@ Et rolig perspektivrutenett som sidebakgrunn. Det reagerer på all lyd og video 
 | `audio` | `audio, video` | Lydkilde (CSS-velger) |
 | `fade-text` | `h1, h2, h3, p, li` | Tone ut bak tekst (velger eller av) |
 | `max-fps` | `30` | Bildefrekvensgrense |
+| `start` | `idle` | Start: `immediate`, `idle` (etter lasting, når nettleseren er ledig) eller `interaction` (første inndata) |
+| `software-fallback` | `on` | Uten GPU eller ved for treg tegning: statisk overgang (`off` slår av) |
+| `frame-guard` | `on` | Stopper animasjonen når bilder stadig bruker over 8 ms (`off` slår av) |
 
 Fungerer i gjeldende versjoner av Chrome, Edge og Firefox med WebGL. Uten WebGL får du en rolig gradient; med redusert bevegelse et stillbilde.
 
@@ -67,7 +70,7 @@ Med redusert bevegelse tegnes rutenettet som et stillbilde. Bak overskrifter og 
 
 ## Ytelse
 
-Bildefrekvensen er begrenset (`max-fps`), tegningen settes på pause i skjulte faner og dempes på mobile enheter. Skriptet er omtrent 15 KB, omtrent 6 KB gzippet, uten avhengigheter.
+Bildefrekvensen er begrenset (`max-fps`), tegningen settes på pause i skjulte faner og dempes på mobile enheter. Skriptet er omtrent 18 KB, omtrent 7 KB gzippet, uten avhengigheter.
 
 ## Oversettelser
 

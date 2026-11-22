@@ -33,6 +33,9 @@ Een rustig perspectiefraster als paginaachtergrond. Het reageert op alle audio e
 | `audio` | `audio, video` | Audiobron (CSS-selector) |
 | `fade-text` | `h1, h2, h3, p, li` | Vervagen achter tekst (selector of off) |
 | `max-fps` | `30` | Framerate-limiet |
+| `start` | `idle` | Start: `immediate`, `idle` (na het laden, als de browser vrij is) of `interaction` (eerste invoer) |
+| `software-fallback` | `on` | Zonder GPU of bij te traag tekenen: statisch kleurverloop (`off` schakelt uit) |
+| `frame-guard` | `on` | Stopt de animatie als beelden aanhoudend langer dan 8 ms duren (`off` schakelt uit) |
 
 Werkt in actuele Chrome, Edge en Firefox met WebGL. Zonder WebGL krijg je een rustige kleurovergang, bij verminderde beweging een stilstaand beeld.
 
@@ -61,7 +64,7 @@ Bij beperkte beweging wordt het raster als stilstaand beeld getekend. Achter kop
 
 ## Prestaties
 
-De framerate is begrensd (`max-fps`), tekenen pauzeert in verborgen tabbladen en wordt op mobiele apparaten gedempt. Het script is ongeveer 15 KB, ongeveer 6 KB met gzip, zonder afhankelijkheden.
+De framerate is begrensd (`max-fps`), tekenen pauzeert in verborgen tabbladen en wordt op mobiele apparaten gedempt. Het script is ongeveer 18 KB, ongeveer 7 KB met gzip, zonder afhankelijkheden.
 
 ## Vertalingen
 

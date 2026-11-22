@@ -33,6 +33,9 @@ Spokojna siatka w perspektywie jako tło strony. Reaguje na każdy dźwięk i wi
 | `audio` | `audio, video` | Źródło dźwięku (selektor CSS) |
 | `fade-text` | `h1, h2, h3, p, li` | Przygaszanie za tekstem (selektor lub off) |
 | `max-fps` | `30` | Limit klatek na sekundę |
+| `start` | `idle` | Start: `immediate`, `idle` (po załadowaniu, gdy przeglądarka jest wolna) lub `interaction` (pierwsze działanie) |
+| `software-fallback` | `on` | Bez GPU lub przy zbyt wolnym rysowaniu: statyczny gradient (`off` wyłącza) |
+| `frame-guard` | `on` | Zatrzymuje animację, gdy klatki stale trwają ponad 8 ms (`off` wyłącza) |
 
 Działa w aktualnych przeglądarkach Chrome, Edge i Firefox z WebGL. Bez WebGL dostajesz spokojny gradient, przy ograniczonym ruchu obraz statyczny.
 
@@ -61,7 +64,7 @@ Przy ograniczonym ruchu siatka jest rysowana jako obraz statyczny. Za nagłówka
 
 ## Wydajność
 
-Liczba klatek jest ograniczona (`max-fps`), rysowanie zatrzymuje się w ukrytych kartach i jest ograniczane na urządzeniach mobilnych. Skrypt ma około 15 KB, około 6 KB po gzip, bez zależności.
+Liczba klatek jest ograniczona (`max-fps`), rysowanie zatrzymuje się w ukrytych kartach i jest ograniczane na urządzeniach mobilnych. Skrypt ma około 18 KB, około 7 KB po gzip, bez zależności.
 
 ## Tłumaczenia
 

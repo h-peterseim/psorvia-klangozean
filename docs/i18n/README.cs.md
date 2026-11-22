@@ -33,6 +33,9 @@ Klidná perspektivní mřížka jako pozadí stránky. Reaguje na každé audio 
 | `audio` | `audio, video` | Zdroj zvuku (CSS selektor) |
 | `fade-text` | `h1, h2, h3, p, li` | Ztlumení za textem (selektor nebo off) |
 | `max-fps` | `30` | Limit snímků za sekundu |
+| `start` | `idle` | Start: `immediate`, `idle` (po načtení, když je prohlížeč volný) nebo `interaction` (první vstup) |
+| `software-fallback` | `on` | Bez GPU nebo při příliš pomalém vykreslování: statický přechod (`off` vypne) |
+| `frame-guard` | `on` | Zastaví animaci, když snímky trvale trvají déle než 8 ms (`off` vypne) |
 
 Funguje v aktuálním Chrome, Edge a Firefox s WebGL. Bez WebGL dostaneš klidný přechod, při omezeném pohybu statický obraz.
 
@@ -61,7 +64,7 @@ Při omezeném pohybu se mřížka vykreslí jako statický obrázek. Za nadpisy
 
 ## Výkon
 
-Snímková frekvence je omezená (`max-fps`), vykreslování se zastaví ve skrytých kartách a na mobilních zařízeních se omezí. Skript má asi 15 KB, asi 6 KB po gzip, bez závislostí.
+Snímková frekvence je omezená (`max-fps`), vykreslování se zastaví ve skrytých kartách a na mobilních zařízeních se omezí. Skript má asi 18 KB, asi 7 KB po gzip, bez závislostí.
 
 ## Překlady
 

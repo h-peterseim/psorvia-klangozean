@@ -33,6 +33,9 @@ Rahulik perspektiivruudustik lehe taustaks. See reageerib iga lehel oleva heli j
 | `audio` | `audio, video` | Heliallikas (CSS-valija) |
 | `fade-text` | `h1, h2, h3, p, li` | Hajumine teksti taga (valija või off) |
 | `max-fps` | `30` | Kaadrisageduse piir |
+| `start` | `idle` | Start: `immediate`, `idle` (pärast laadimist, kui brauser on vaba) või `interaction` (esimene sisend) |
+| `software-fallback` | `on` | Ilma GPU-ta või liiga aeglase joonistamise korral: staatiline üleminek (`off` lülitab välja) |
+| `frame-guard` | `on` | Peatab animatsiooni, kui kaadrid võtavad püsivalt üle 8 ms (`off` lülitab välja) |
 
 Töötab praegustes Chrome'is, Edge'is ja Firefoxis koos WebGL-iga. Ilma WebGL-ita saad rahuliku üleminekuvärvi, vähendatud liikumisega staatilise pildi.
 
@@ -61,7 +64,7 @@ Vähendatud liikumise korral joonistatakse ruudustik staatilise pildina. Pealkir
 
 ## Jõudlus
 
-Kaadrisagedus on piiratud (`max-fps`), joonistamine peatub peidetud vahelehtedel ja mobiilseadmetel seda piiratakse. Skript on umbes 15 KB, gzipiga umbes 6 KB, sõltuvusteta.
+Kaadrisagedus on piiratud (`max-fps`), joonistamine peatub peidetud vahelehtedel ja mobiilseadmetel seda piiratakse. Skript on umbes 18 KB, gzipiga umbes 7 KB, sõltuvusteta.
 
 ## Tõlked
 

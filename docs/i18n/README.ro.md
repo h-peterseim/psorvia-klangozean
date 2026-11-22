@@ -33,6 +33,9 @@ O grilă calmă în perspectivă ca fundal de pagină. Reacționează la orice s
 | `audio` | `audio, video` | Sursă audio (selector CSS) |
 | `fade-text` | `h1, h2, h3, p, li` | Estompare în spatele textului (selector sau off) |
 | `max-fps` | `30` | Limită de cadre pe secundă |
+| `start` | `idle` | Pornire: `immediate`, `idle` (după încărcare, când browserul e liber) sau `interaction` (prima acțiune) |
+| `software-fallback` | `on` | Fără GPU sau la desenare prea lentă: degrade static (`off` dezactivează) |
+| `frame-guard` | `on` | Oprește animația când cadrele durează constant peste 8 ms (`off` dezactivează) |
 
 Funcționează în versiunile actuale de Chrome, Edge și Firefox cu WebGL. Fără WebGL primești un degrade calm; cu mișcare redusă, o imagine statică.
 
@@ -61,7 +64,7 @@ Cu mișcare redusă, grila este desenată ca imagine statică. În spatele titlu
 
 ## Performanță
 
-Rata de cadre este limitată (`max-fps`), desenarea se oprește în filele ascunse și este limitată pe dispozitivele mobile. Scriptul are circa 15 KB, circa 6 KB cu gzip, fără dependențe.
+Rata de cadre este limitată (`max-fps`), desenarea se oprește în filele ascunse și este limitată pe dispozitivele mobile. Scriptul are circa 18 KB, circa 7 KB cu gzip, fără dependențe.
 
 ## Traduceri
 

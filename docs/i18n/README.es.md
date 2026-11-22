@@ -33,6 +33,9 @@ Una rejilla en perspectiva tranquila como fondo de página. Reacciona a cualquie
 | `audio` | `audio, video` | Fuente de audio (selector CSS) |
 | `fade-text` | `h1, h2, h3, p, li` | Atenuar tras el texto (selector u off) |
 | `max-fps` | `30` | Límite de fotogramas |
+| `start` | `idle` | Inicio: `immediate`, `idle` (tras la carga, con el navegador libre) o `interaction` (primera acción) |
+| `software-fallback` | `on` | Sin GPU o si dibuja demasiado lento: degradado estático (`off` lo desactiva) |
+| `frame-guard` | `on` | Detiene la animación cuando los fotogramas tardan siempre más de 8 ms (`off` lo desactiva) |
 
 Funciona en las versiones actuales de Chrome, Edge y Firefox con WebGL. Sin WebGL verás un degradado suave; con movimiento reducido, una imagen fija.
 
@@ -61,7 +64,7 @@ Con movimiento reducido la rejilla se dibuja como imagen fija. Detrás de títul
 
 ## Rendimiento
 
-La tasa de fotogramas está limitada (`max-fps`), el dibujo se pausa en pestañas ocultas y se reduce en dispositivos móviles. El script pesa unos 15 KB, unos 6 KB con gzip, sin dependencias.
+La tasa de fotogramas está limitada (`max-fps`), el dibujo se pausa en pestañas ocultas y se reduce en dispositivos móviles. El script pesa unos 18 KB, unos 7 KB con gzip, sin dependencias.
 
 ## Traducciones
 

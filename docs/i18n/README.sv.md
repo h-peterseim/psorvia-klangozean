@@ -33,6 +33,9 @@ Ett lugnt perspektivrutnät som sidbakgrund. Det reagerar på allt ljud och all 
 | `audio` | `audio, video` | Ljudkälla (CSS-väljare) |
 | `fade-text` | `h1, h2, h3, p, li` | Tona ner bakom text (väljare eller off) |
 | `max-fps` | `30` | Bildfrekvensgräns |
+| `start` | `idle` | Start: `immediate`, `idle` (efter laddning, när webbläsaren är ledig) eller `interaction` (första inmatningen) |
+| `software-fallback` | `on` | Utan GPU eller vid för långsam ritning: statisk toning (`off` stänger av) |
+| `frame-guard` | `on` | Stoppar animationen när bilder ständigt tar över 8 ms (`off` stänger av) |
 
 Fungerar i aktuella Chrome, Edge och Firefox med WebGL. Utan WebGL får du en lugn toning, vid reducerad rörelse en stillbild.
 
@@ -61,7 +64,7 @@ Med minskad rörelse ritas rutnätet som en stillbild. Bakom rubriker och text t
 
 ## Prestanda
 
-Bildfrekvensen är begränsad (`max-fps`), ritningen pausar i dolda flikar och dras ner på mobila enheter. Skriptet är cirka 15 KB, cirka 6 KB med gzip, utan beroenden.
+Bildfrekvensen är begränsad (`max-fps`), ritningen pausar i dolda flikar och dras ner på mobila enheter. Skriptet är cirka 18 KB, cirka 7 KB med gzip, utan beroenden.
 
 ## Översättningar
 

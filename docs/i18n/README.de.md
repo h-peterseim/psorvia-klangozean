@@ -33,6 +33,9 @@ Ein ruhiges Perspektivgitter als Seitenhintergrund. Es reagiert auf jedes Audio 
 | `audio` | `audio, video` | Audioquelle (CSS-Selektor) |
 | `fade-text` | `h1, h2, h3, p, li` | Abschwächen hinter Text (Selektor oder off) |
 | `max-fps` | `30` | Bildraten-Grenze |
+| `start` | `idle` | Start: `immediate`, `idle` (nach dem Laden, wenn der Browser frei ist) oder `interaction` (erste Eingabe) |
+| `software-fallback` | `on` | Ohne GPU oder bei zu langsamem Zeichnen: ruhiger statischer Verlauf (`off` schaltet ab) |
+| `frame-guard` | `on` | Hält die Animation an, wenn Bilder dauerhaft über 8 ms brauchen (`off` schaltet ab) |
 
 Läuft in aktuellem Chrome, Edge und Firefox mit WebGL. Ohne WebGL gibt es einen ruhigen Verlauf, bei reduzierter Bewegung ein Standbild.
 
@@ -61,7 +64,7 @@ Bei reduzierter Bewegung wird das Gitter als Standbild gezeichnet. Hinter Übers
 
 ## Leistung
 
-Die Bildrate ist begrenzt (`max-fps`), das Zeichnen pausiert in verborgenen Tabs und wird auf Mobilgeräten gedrosselt. Das Skript hat etwa 15 KB, gzip etwa 6 KB, ohne Abhängigkeiten.
+Die Bildrate ist begrenzt (`max-fps`), das Zeichnen pausiert in verborgenen Tabs und wird auf Mobilgeräten gedrosselt. Das Skript hat etwa 18 KB, gzip etwa 7 KB, ohne Abhängigkeiten.
 
 ## Übersetzungen
 

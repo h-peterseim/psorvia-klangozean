@@ -33,6 +33,9 @@ Nyugodt perspektivikus rács oldalháttérként. Reagál az oldal minden hangjá
 | `audio` | `audio, video` | Hangforrás (CSS-választó) |
 | `fade-text` | `h1, h2, h3, p, li` | Elhalványítás a szöveg mögött (választó vagy off) |
 | `max-fps` | `30` | Képkockasebesség-korlát |
+| `start` | `idle` | Indítás: `immediate`, `idle` (betöltés után, ha a böngésző szabad) vagy `interaction` (első bevitel) |
+| `software-fallback` | `on` | GPU nélkül vagy túl lassú rajzolásnál: statikus színátmenet (`off` kikapcsolja) |
+| `frame-guard` | `on` | Leállítja az animációt, ha a képkockák tartósan 8 ms-nál tovább tartanak (`off` kikapcsolja) |
 
 Működik az aktuális Chrome, Edge és Firefox böngészőkben WebGL-lel. WebGL nélkül nyugodt színátmenetet kapsz, csökkentett mozgásnál állóképet.
 
@@ -61,7 +64,7 @@ Csökkentett mozgásnál a rács állóképként rajzolódik ki. A címsorok és
 
 ## Teljesítmény
 
-A képkockasebesség korlátozott (`max-fps`), a rajzolás szünetel a rejtett lapokon, és mobil eszközökön visszafogott. A szkript körülbelül 15 KB, gzippel körülbelül 6 KB, függőségek nélkül.
+A képkockasebesség korlátozott (`max-fps`), a rajzolás szünetel a rejtett lapokon, és mobil eszközökön visszafogott. A szkript körülbelül 18 KB, gzippel körülbelül 7 KB, függőségek nélkül.
 
 ## Fordítások
 

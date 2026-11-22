@@ -33,6 +33,9 @@ Greille peirspictíochta chiúin mar chúlra leathanaigh. Freagraíonn sí d'aon
 | `audio` | `audio, video` | Foinse fuaime (roghnóir CSS) |
 | `fade-text` | `h1, h2, h3, p, li` | Laghdú taobh thiar de théacs (roghnóir nó off) |
 | `max-fps` | `30` | Teorainn fráma |
+| `start` | `idle` | Tosú: `immediate`, `idle` (tar éis luchtú, nuair a bhíonn an brabhsálaí saor) nó `interaction` (an chéad ionchur) |
+| `software-fallback` | `on` | Gan GPU nó nuair a tharraingítear rómhall: grádán statach (múchann `off` é) |
+| `frame-guard` | `on` | Stopann an beochan nuair a thógann fráma níos mó ná 8 ms de shíor (múchann `off` é) |
 
 Oibríonn sé i Chrome, Edge agus Firefox reatha le WebGL. Gan WebGL, gheobhaidh tú grádán ciúin; le gluaiseacht laghdaithe, íomhá statach.
 
@@ -61,7 +64,7 @@ Le gluaiseacht laghdaithe, tarraingítear an greille mar íomhá statach. Taobh 
 
 ## Feidhmíocht
 
-Tá an ráta fráma teoranta (`max-fps`), cuirtear an tarraingt ar sos i gcluaisíní folaithe agus moillítear í ar ghléasanna soghluaiste. Tá an script thart ar 15 KB, thart ar 6 KB le gzip, gan spleáchais.
+Tá an ráta fráma teoranta (`max-fps`), cuirtear an tarraingt ar sos i gcluaisíní folaithe agus moillítear í ar ghléasanna soghluaiste. Tá an script thart ar 18 KB, thart ar 7 KB le gzip, gan spleáchais.
 
 ## Aistriúcháin
 

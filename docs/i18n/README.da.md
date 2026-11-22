@@ -33,6 +33,9 @@ Et roligt perspektivgitter som sidebaggrund. Det reagerer på al lyd og video p�
 | `audio` | `audio, video` | Lydkilde (CSS-vælger) |
 | `fade-text` | `h1, h2, h3, p, li` | Tone ud bag tekst (vælger eller off) |
 | `max-fps` | `30` | Billedhastighedsgrænse |
+| `start` | `idle` | Start: `immediate`, `idle` (efter indlæsning, når browseren er ledig) eller `interaction` (første input) |
+| `software-fallback` | `on` | Uden GPU eller ved for langsom tegning: statisk forløb (`off` slår fra) |
+| `frame-guard` | `on` | Stopper animationen, når billeder konstant tager over 8 ms (`off` slår fra) |
 
 Virker i nuværende Chrome, Edge og Firefox med WebGL. Uden WebGL får du en rolig overgang, ved reduceret bevægelse et stillbillede.
 
@@ -61,7 +64,7 @@ Med reduceret bevægelse tegnes gitteret som et stillbillede. Bag overskrifter o
 
 ## Ydeevne
 
-Billedhastigheden er begrænset (`max-fps`), tegningen holder pause i skjulte faner og drosles på mobile enheder. Scriptet er cirka 15 KB, cirka 6 KB med gzip, uden afhængigheder.
+Billedhastigheden er begrænset (`max-fps`), tegningen holder pause i skjulte faner og drosles på mobile enheder. Scriptet er cirka 18 KB, cirka 7 KB med gzip, uden afhængigheder.
 
 ## Oversættelser
 

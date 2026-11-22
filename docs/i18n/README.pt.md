@@ -33,6 +33,9 @@ Uma grelha em perspetiva tranquila como fundo da página. Reage a qualquer áudi
 | `audio` | `audio, video` | Fonte de áudio (seletor CSS) |
 | `fade-text` | `h1, h2, h3, p, li` | Esbater atrás do texto (seletor ou off) |
 | `max-fps` | `30` | Limite de imagens por segundo |
+| `start` | `idle` | Início: `immediate`, `idle` (após o carregamento, com o navegador livre) ou `interaction` (primeira ação) |
+| `software-fallback` | `on` | Sem GPU ou com desenho demasiado lento: gradiente estático (`off` desativa) |
+| `frame-guard` | `on` | Para a animação quando os fotogramas demoram continuamente mais de 8 ms (`off` desativa) |
 
 Funciona nas versões atuais de Chrome, Edge e Firefox com WebGL. Sem WebGL, recebes um gradiente calmo; com movimento reduzido, uma imagem fixa.
 
@@ -61,7 +64,7 @@ Com movimento reduzido, a grelha é desenhada como imagem fixa. Atrás de títul
 
 ## Desempenho
 
-A taxa de fotogramas é limitada (`max-fps`), o desenho pausa em separadores ocultos e é reduzido em dispositivos móveis. O script tem cerca de 15 KB, cerca de 6 KB com gzip, sem dependências.
+A taxa de fotogramas é limitada (`max-fps`), o desenho pausa em separadores ocultos e é reduzido em dispositivos móveis. O script tem cerca de 18 KB, cerca de 7 KB com gzip, sem dependências.
 
 ## Traduções
 

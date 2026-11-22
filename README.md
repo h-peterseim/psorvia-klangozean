@@ -33,8 +33,11 @@ A calm perspective grid as page background. It reacts to any audio or video on t
 | `audio` | `audio, video` | Audio source (CSS selector) |
 | `fade-text` | `h1, h2, h3, p, li` | Fade behind text (selector or off) |
 | `max-fps` | `30` | Frame rate limit |
+| `start` | `idle` | Start: `immediate`, `idle` (after load, when the browser is idle) or `interaction` (first input) |
+| `software-fallback` | `on` | Without a GPU or when drawing is too slow: static gradient (`off` disables) |
+| `frame-guard` | `on` | Stops the animation when frames keep taking over 8 ms (`off` disables) |
 
-Works in current Chrome, Edge and Firefox with WebGL. Without WebGL you get a calm gradient; with reduced motion a still image.
+Works in current Chrome, Edge and Firefox with WebGL. By default the canvas starts after the page has loaded, when the browser is idle, so it never delays first paint. Without WebGL, without a GPU (software rendering) or when frames are too slow you get a calm static gradient; with reduced motion a still image.
 
 ## API
 
@@ -67,7 +70,7 @@ With reduced motion the grid is drawn as a still image. Behind headings and text
 
 ## Performance
 
-The frame rate is limited (`max-fps`), drawing pauses in hidden tabs and is throttled on mobile devices. The script is about 15 KB, about 6 KB gzipped, without dependencies.
+The frame rate is limited (`max-fps`), drawing pauses in hidden tabs and is throttled on mobile devices. The script is about 18 KB, about 7 KB gzipped, without dependencies.
 
 ## Translations
 

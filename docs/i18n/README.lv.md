@@ -33,6 +33,9 @@ Mierīgs perspektīvas režģis kā lapas fons. Tas reaģē uz jebkuru lapas ska
 | `audio` | `audio, video` | Skaņas avots (CSS selektors) |
 | `fade-text` | `h1, h2, h3, p, li` | Izdzišana aiz teksta (selektors vai off) |
 | `max-fps` | `30` | Kadru ātruma ierobežojums |
+| `start` | `idle` | Starts: `immediate`, `idle` (pēc ielādes, kad pārlūks ir brīvs) vai `interaction` (pirmā darbība) |
+| `software-fallback` | `on` | Bez GPU vai pārāk lēnas zīmēšanas gadījumā: statisks pāreju fons (`off` izslēdz) |
+| `frame-guard` | `on` | Aptur animāciju, kad kadri pastāvīgi ilgst vairāk par 8 ms (`off` izslēdz) |
 
 Darbojas pašreizējos Chrome, Edge un Firefox ar WebGL. Bez WebGL iegūsi mierīgu pāreju, ar samazinātu kustību nekustīgu attēlu.
 
@@ -61,7 +64,7 @@ Ar samazinātu kustību režģis tiek zīmēts kā statisks attēls. Aiz virsrak
 
 ## Veiktspēja
 
-Kadru nomaiņas ātrums ir ierobežots (`max-fps`), zīmēšana apstājas slēptās cilnēs un tiek ierobežota mobilajās ierīcēs. Skripts ir apmēram 15 KB, apmēram 6 KB ar gzip, bez atkarībām.
+Kadru nomaiņas ātrums ir ierobežots (`max-fps`), zīmēšana apstājas slēptās cilnēs un tiek ierobežota mobilajās ierīcēs. Skripts ir apmēram 18 KB, apmēram 7 KB ar gzip, bez atkarībām.
 
 ## Tulkojumi
 

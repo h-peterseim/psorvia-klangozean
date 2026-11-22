@@ -33,6 +33,9 @@ Grilja kalma fil-perspettiva bħala sfond tal-paġna. Tirreaġixxi għal kull aw
 | `audio` | `audio, video` | Sors tal-awdjo (selettur CSS) |
 | `fade-text` | `h1, h2, h3, p, li` | Tisfumatura wara t-test (selettur jew off) |
 | `max-fps` | `30` | Limitu tal-frejms |
+| `start` | `idle` | Tnedija: `immediate`, `idle` (wara t-tagħbija, meta l-browser ikun liberu) jew `interaction` (l-ewwel input) |
+| `software-fallback` | `on` | Mingħajr GPU jew meta jinġibed bil-mod żżejjed: gradjent statiku (`off` jitfih) |
+| `frame-guard` | `on` | Iwaqqaf l-animazzjoni meta l-frejms dejjem jieħdu aktar minn 8 ms (`off` jitfih) |
 
 Taħdem fl-aħħar verżjonijiet ta' Chrome, Edge u Firefox b'WebGL. Mingħajr WebGL tikseb gradjent kalm; b'moviment imnaqqas, stampa fissa.
 
@@ -61,7 +64,7 @@ B'moviment imnaqqas il-grilja tiġi mpinġija bħala immaġni fissa. Wara l-inte
 
 ## Prestazzjoni
 
-Ir-rata tal-frejms hija limitata (`max-fps`), it-tpinġija tieqaf fit-tabs moħbija u titnaqqas fuq apparati mobbli. L-iskrip huwa madwar 15 KB, madwar 6 KB bil-gzip, mingħajr dipendenzi.
+Ir-rata tal-frejms hija limitata (`max-fps`), it-tpinġija tieqaf fit-tabs moħbija u titnaqqas fuq apparati mobbli. L-iskrip huwa madwar 18 KB, madwar 7 KB bil-gzip, mingħajr dipendenzi.
 
 ## Traduzzjonijiet
 

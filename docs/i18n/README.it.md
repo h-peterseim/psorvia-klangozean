@@ -33,6 +33,9 @@ Una calma griglia in prospettiva come sfondo della pagina. Reagisce a ogni audio
 | `audio` | `audio, video` | Sorgente audio (selettore CSS) |
 | `fade-text` | `h1, h2, h3, p, li` | Attenuazione dietro il testo (selettore oppure off) |
 | `max-fps` | `30` | Limite di fotogrammi |
+| `start` | `idle` | Avvio: `immediate`, `idle` (dopo il caricamento, a browser libero) o `interaction` (primo input) |
+| `software-fallback` | `on` | Senza GPU o con disegno troppo lento: sfumatura statica (`off` disattiva) |
+| `frame-guard` | `on` | Ferma l'animazione quando i fotogrammi superano stabilmente 8 ms (`off` disattiva) |
 
 Funziona nelle versioni attuali di Chrome, Edge e Firefox con WebGL. Senza WebGL ottieni una sfumatura tranquilla; con movimento ridotto, un'immagine fissa.
 
@@ -61,7 +64,7 @@ Con movimento ridotto la griglia viene disegnata come immagine fissa. Dietro tit
 
 ## Prestazioni
 
-Il frame rate è limitato (`max-fps`), il disegno si ferma nelle schede nascoste e viene ridotto sui dispositivi mobili. Lo script pesa circa 15 KB, circa 6 KB con gzip, senza dipendenze.
+Il frame rate è limitato (`max-fps`), il disegno si ferma nelle schede nascoste e viene ridotto sui dispositivi mobili. Lo script pesa circa 18 KB, circa 7 KB con gzip, senza dipendenze.
 
 ## Traduzioni
 

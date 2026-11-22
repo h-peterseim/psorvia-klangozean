@@ -33,6 +33,9 @@ Sayfa arka planı olarak sakin bir perspektif ızgarası. Sayfadaki tüm ses ve 
 | `audio` | `audio, video` | Ses kaynağı (CSS seçici) |
 | `fade-text` | `h1, h2, h3, p, li` | Metnin arkasında solma (seçici veya kapalı) |
 | `max-fps` | `30` | Kare hızı sınırı |
+| `start` | `idle` | Başlatma: `immediate`, `idle` (yüklemeden sonra, tarayıcı boştayken) veya `interaction` (ilk girdi) |
+| `software-fallback` | `on` | GPU yoksa veya çizim çok yavaşsa: sabit renk geçişi (`off` kapatır) |
+| `frame-guard` | `on` | Kareler sürekli 8 ms'den uzun sürerse animasyonu durdurur (`off` kapatır) |
 
 WebGL destekli güncel Chrome, Edge ve Firefox sürümlerinde çalışır. WebGL olmadan sakin bir renk geçişi, azaltılmış harekette ise sabit bir görüntü elde edersiniz.
 
@@ -67,7 +70,7 @@ Azaltılmış hareket tercihinde ızgara sabit bir görüntü olarak çizilir. B
 
 ## Performans
 
-Kare hızı sınırlıdır (`max-fps`), çizim gizli sekmelerde durur ve mobil cihazlarda kısıtlanır. Betik yaklaşık 15 KB, gzip ile yaklaşık 6 KB boyutundadır ve bağımlılığı yoktur.
+Kare hızı sınırlıdır (`max-fps`), çizim gizli sekmelerde durur ve mobil cihazlarda kısıtlanır. Betik yaklaşık 18 KB, gzip ile yaklaşık 7 KB boyutundadır ve bağımlılığı yoktur.
 
 ## Çeviriler
 

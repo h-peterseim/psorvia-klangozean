@@ -33,6 +33,9 @@ Rauhallinen perspektiiviruudukko sivun taustana. Se reagoi sivun jokaiseen ään
 | `audio` | `audio, video` | Äänilähde (CSS-valitsin) |
 | `fade-text` | `h1, h2, h3, p, li` | Vaimennus tekstin takana (valitsin tai off) |
 | `max-fps` | `30` | Kuvataajuuden raja |
+| `start` | `idle` | Käynnistys: `immediate`, `idle` (latauksen jälkeen, kun selain on vapaa) tai `interaction` (ensimmäinen syöte) |
+| `software-fallback` | `on` | Ilman GPU:ta tai liian hitaalla piirtämisellä: staattinen liukuväri (`off` poistaa käytöstä) |
+| `frame-guard` | `on` | Pysäyttää animaation, kun kuvat kestävät jatkuvasti yli 8 ms (`off` poistaa käytöstä) |
 
 Toimii nykyisissä Chromessa, Edgessä ja Firefoxissa WebGL:n kanssa. Ilman WebGL:ää saat rauhallisen liukuvärin, vähennetyllä liikkeellä pysäytyskuvan.
 
@@ -61,7 +64,7 @@ Vähennetyllä liikkeellä ruudukko piirretään pysäytyskuvana. Otsikoiden ja 
 
 ## Suorituskyky
 
-Kuvataajuus on rajattu (`max-fps`), piirto keskeytyy piilotetuissa välilehdissä ja sitä rajoitetaan mobiililaitteilla. Skripti on noin 15 KB, noin 6 KB gzip-pakattuna, ilman riippuvuuksia.
+Kuvataajuus on rajattu (`max-fps`), piirto keskeytyy piilotetuissa välilehdissä ja sitä rajoitetaan mobiililaitteilla. Skripti on noin 18 KB, noin 7 KB gzip-pakattuna, ilman riippuvuuksia.
 
 ## Käännökset
 

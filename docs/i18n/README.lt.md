@@ -33,6 +33,9 @@ Rami perspektyvinė tinklelio gija puslapio fonui. Ji reaguoja į bet kokį pusl
 | `audio` | `audio, video` | Garso šaltinis (CSS parinkiklis) |
 | `fade-text` | `h1, h2, h3, p, li` | Pritemimas už teksto (parinkiklis arba off) |
 | `max-fps` | `30` | Kadrų dažnio riba |
+| `start` | `idle` | Paleidimas: `immediate`, `idle` (po įkėlimo, kai naršyklė laisva) arba `interaction` (pirmas veiksmas) |
+| `software-fallback` | `on` | Be GPU arba per lėtai piešiant: statinis perėjimas (`off` išjungia) |
+| `frame-guard` | `on` | Sustabdo animaciją, kai kadrai nuolat trunka ilgiau nei 8 ms (`off` išjungia) |
 
 Veikia dabartinėse Chrome, Edge ir Firefox su WebGL. Be WebGL gauni ramų gradientą, esant sumažintam judėjimui nejudantį vaizdą.
 
@@ -61,7 +64,7 @@ Sumažinto judesio režimu tinklelis piešiamas kaip statinis vaizdas. Už antra
 
 ## Našumas
 
-Kadrų dažnis ribojamas (`max-fps`), piešimas sustoja paslėptuose skirtukuose ir ribojamas mobiliuosiuose įrenginiuose. Skriptas užima apie 15 KB, apie 6 KB su gzip, be priklausomybių.
+Kadrų dažnis ribojamas (`max-fps`), piešimas sustoja paslėptuose skirtukuose ir ribojamas mobiliuosiuose įrenginiuose. Skriptas užima apie 18 KB, apie 7 KB su gzip, be priklausomybių.
 
 ## Vertimai
 

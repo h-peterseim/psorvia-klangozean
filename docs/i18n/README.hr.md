@@ -33,6 +33,9 @@ Mirna perspektivna mreža kao pozadina stranice. Reagira na svaki zvuk i video n
 | `audio` | `audio, video` | Izvor zvuka (CSS selektor) |
 | `fade-text` | `h1, h2, h3, p, li` | Stišavanje iza teksta (selektor ili off) |
 | `max-fps` | `30` | Ograničenje broja sličica |
+| `start` | `idle` | Pokretanje: `immediate`, `idle` (nakon učitavanja, kad je preglednik slobodan) ili `interaction` (prvi unos) |
+| `software-fallback` | `on` | Bez GPU-a ili pri presporom crtanju: statični prijelaz (`off` isključuje) |
+| `frame-guard` | `on` | Zaustavlja animaciju kad sličice stalno traju dulje od 8 ms (`off` isključuje) |
 
 Radi u aktualnim preglednicima Chrome, Edge i Firefox s WebGL-om. Bez WebGL-a dobivaš miran prijelaz boja, uz smanjeno kretanje statičnu sliku.
 
@@ -61,7 +64,7 @@ Uz smanjeno kretanje mreža se crta kao statična slika. Iza naslova i teksta se
 
 ## Performanse
 
-Brzina sličica ograničena je (`max-fps`), crtanje se pauzira u skrivenim karticama i usporava na mobilnim uređajima. Skripta ima oko 15 KB, oko 6 KB s gzipom, bez ovisnosti.
+Brzina sličica ograničena je (`max-fps`), crtanje se pauzira u skrivenim karticama i usporava na mobilnim uređajima. Skripta ima oko 18 KB, oko 7 KB s gzipom, bez ovisnosti.
 
 ## Prijevodi
 

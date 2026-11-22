@@ -33,6 +33,9 @@ Une grille en perspective apaisante en arrière-plan de la page. Elle réagit à
 | `audio` | `audio, video` | Source audio (sélecteur CSS) |
 | `fade-text` | `h1, h2, h3, p, li` | Atténuation derrière le texte (sélecteur ou off) |
 | `max-fps` | `30` | Limite d'images par seconde |
+| `start` | `idle` | Démarrage : `immediate`, `idle` (après le chargement, navigateur libre) ou `interaction` (première action) |
+| `software-fallback` | `on` | Sans GPU ou si le rendu est trop lent : dégradé statique (`off` désactive) |
+| `frame-guard` | `on` | Arrête l'animation quand les images dépassent durablement 8 ms (`off` désactive) |
 
 Fonctionne dans les versions actuelles de Chrome, Edge et Firefox avec WebGL. Sans WebGL, tu obtiens un dégradé calme ; avec mouvement réduit, une image fixe.
 

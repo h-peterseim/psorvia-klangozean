@@ -87,12 +87,65 @@ class KlangOzean extends HTMLElement {
 
   connectedCallback() {
     if (this.cv) return;
-    const root = this.attachShadow({ mode: 'open' });
+    const root = this.shadowRoot || this.attachShadow({ mode: 'open' });
     const st = document.createElement('style'); st.textContent = CSS; root.appendChild(st);
     this.cv = document.createElement('canvas'); this.setAttribute('aria-hidden', 'true'); root.appendChild(this.cv);
     this.root = root;
-    this.gl = this.cv.getContext('webgl', { alpha: true, premultipliedAlpha: true, antialias: false, powerPreference: 'low-power' });
-    if (!this.gl || !this.build()) { this.gl = null; this.fallback(); return; }
+    this.schedule();
+  }
+
+  // start="immediate" | "idle" (default: after load, when the browser is idle) | "interaction" (first input)
+  schedule() {
+    const mode = this.getAttribute('start') || 'idle';
+    if (mode === 'immediate') { this.launch(); return; }
+    const idle = () => {
+      this.cancelStart();
+      const run = () => { this.stop = 'idle'; const go = () => { this.stop = 0; if (this.cv && !this.live) this.launch(); }; this.idleId = 'requestIdleCallback' in window ? requestIdleCallback(go, { timeout: 3000 }) : setTimeout(go, 1200); };
+      if (document.readyState === 'complete') run(); else { this.stop = 'load'; this.loadFn = run; window.addEventListener('load', run, { once: true }); }
+    };
+    if (mode === 'interaction') {
+      const ev = ['pointerdown', 'pointermove', 'keydown', 'wheel', 'touchstart', 'scroll'];
+      this.stop = 'input'; this.wake = () => { ev.forEach((t) => removeEventListener(t, this.wake, true)); this.wake = null; this.stop = 0; idle(); };
+      ev.forEach((t) => addEventListener(t, this.wake, { capture: true, passive: true }));
+    } else idle();
+  }
+
+  cancelStart() {
+    if (this.wake) { ['pointerdown', 'pointermove', 'keydown', 'wheel', 'touchstart', 'scroll'].forEach((t) => removeEventListener(t, this.wake, true)); this.wake = null; }
+    if (this.loadFn) { window.removeEventListener('load', this.loadFn); this.loadFn = null; }
+    if (this.idleId) { if ('cancelIdleCallback' in window && typeof this.idleId === 'number' && this.stop === 'idle') cancelIdleCallback(this.idleId); clearTimeout(this.idleId); this.idleId = 0; }
+    this.stop = 0;
+  }
+
+  off(name) { const v = this.getAttribute(name); return v === 'off' || v === 'false'; }
+
+  // True for software rendering (SwiftShader, llvmpipe, ...): every frame would cost the main thread.
+  software() {
+    try {
+      const x = this.gl.getExtension('WEBGL_debug_renderer_info');
+      return !!x && /swiftshader|llvmpipe|softpipe|software|basic render|mesa offscreen/i.test(String(this.gl.getParameter(x.UNMASKED_RENDERER_WEBGL)));
+    } catch (e) { return false; }
+  }
+
+  // One test frame, forced to finish; ms
+  probe() {
+    const t = performance.now(), gl = this.gl;
+    this.frame(0.016, false); gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array(4));
+    return performance.now() - t;
+  }
+
+  // Too slow or no GPU: stop drawing, keep the calm static gradient.
+  degrade() {
+    this.release(); this.live = false;
+    try { const x = this.gl && this.gl.getExtension('WEBGL_lose_context'); if (x) x.loseContext(); } catch (e) { /* ignore */ }
+    this.gl = null; this.slow = true; this.fallback();
+  }
+
+  launch() {
+    this.live = false;
+    const soft = !this.off('software-fallback');
+    this.gl = this.cv.getContext('webgl', { alpha: true, premultipliedAlpha: true, antialias: false, powerPreference: 'low-power', failIfMajorPerformanceCaveat: soft });
+    if (!this.gl || !this.build() || (soft && this.software())) { if (this.gl && this.gl.getExtension) { try { const x = this.gl.getExtension('WEBGL_lose_context'); if (x) x.loseContext(); } catch (e) { /* ignore */ } } this.gl = null; this.fallback(); return; }
     this.mobile = matchMedia('(pointer: coarse), (max-width: 700px)').matches;
     this.reduced = matchMedia('(prefers-reduced-motion: reduce)');
     this.scheme = matchMedia('(prefers-color-scheme: dark)');
@@ -115,19 +168,26 @@ class KlangOzean extends HTMLElement {
     document.querySelectorAll('audio,video').forEach((el) => { if (!el.paused && this.mediaOk(el)) hub.set(el, true); });
     if (document.fonts) document.fonts.ready.then(this.queue);
     setTimeout(this.queue, 600);
+    this.live = true; this.slowN = 0; this.nf = 0;
+    if (soft && this.probe() > 12) { this.degrade(); return; }
     this.textRects(); this.sync();
   }
 
   disconnectedCallback() {
-    if (!this.gl) return;
-    cancelAnimationFrame(this.raf); this.raf = 0;
+    this.cancelStart();
+    if (this.live) this.release();
+    if (!this.cv) return;
+    this.cv = null; this.root = null; this.gl = null; this.live = false;     // re-attaching rebuilds
+    this.shadowRoot && (this.shadowRoot.innerHTML = '');
+  }
+
+  release() {
+    cancelAnimationFrame(this.raf); this.raf = 0; cancelAnimationFrame(this.pend); this.pend = 0;
     window.removeEventListener('resize', this.onResize); window.removeEventListener('scroll', this.queue);
     document.removeEventListener('visibilitychange', this.vis);
     ['play', 'pause', 'ended'].forEach((ev) => document.removeEventListener(ev, this.onMedia, true));
     this.scheme.removeEventListener('change', this.onTheme); this.reduced.removeEventListener('change', this.vis);
     this.mo.disconnect();
-    this.cv = null; this.root = null; this.gl = null;     // re-attaching rebuilds
-    this.shadowRoot && (this.shadowRoot.innerHTML = '');
   }
 
   attributeChangedCallback() { if (this.gl) { this.theme(); this.size(); this.queue(); this.frame(0, !this.raf); } }
@@ -214,7 +274,10 @@ class KlangOzean extends HTMLElement {
     if (cap) fps = Math.min(fps, cap);
     const dt = (now - this.last) / 1000;
     if (dt < 1 / fps - 0.004) return;
-    this.last = now; this.frame(Math.min(dt, 0.1), false);
+    this.last = now;
+    const t0 = performance.now(); this.frame(Math.min(dt, 0.1), false);
+    // frame-guard: frames that keep costing > 8 ms on the main thread end the animation (static gradient)
+    if (!this.off('frame-guard') && ++this.nf > 4) { this.slowN = performance.now() - t0 > 8 ? this.slowN + 1 : 0; if (this.slowN >= 20) this.degrade(); }
   }
 
   levels(out) {
